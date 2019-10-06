@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+        <title>One Page Scroll</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: mistyrose;
+        }
+
+        .wrapper {
+            width: 1180px;
+            height: 4500px;
+            background-color: lightblue;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        nav {
+            width: 1160px;
+            height: 100px;
+            background-color: palevioletred;
+            color: powderblue;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        #section-01, #section-03, #section-05 {
+            width: 1160px;
+            height: 800px;
+            background-color: lightblue;
+            color: black;
+            margin: 0 auto;
+        }
+
+        #section-02, #section-04 {
+            width: 1160px;
+            height: 800px;
+            background-color: lightpink;
+            color: black;
+            margin: 0 auto;
+        }
+
+        p#nav-section-01, p#nav-section-02, p#nav-section-03, p#nav-section-04, p#nav-section-05 {
+            display: inline;
+            font-size: 24px;
+            font-family: "Avenir Next Condensed", Arial, sans-serif;
+            font-weight: bold;
+            padding: 0 25px;
+            line-height: 100px;
+        }
+
+        a:link {
+                     text-decoration: none;
+                     color: white;
+                 }
+
+        a:visited {
+            text-decoration: none;
+            color: grey;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: greenyellow;
+        }
+
+        a:active {
+            text-decoration: none;
+            color: deepskyblue;
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 25px;
+            left: 50px;
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="top">
+    </div>
+    <nav>
+        <a href="#section-01"><p id="nav-section-01">SECTION ONE</p></a>
+         <a href="#section-02"><p id="nav-section-02">SECTION TWO</p></a>
+         <a href="#section-03"><p id="nav-section-03">SECTION THREE</p></a>
+         <a href="#section-04"><p id="nav-section-04">SECTION FOUR</p></a>
+         <a href="#section-05"><p id="nav-section-05">SECTION FIVE</p></a>
+
+    </nav>
+       
+    <section id="section-01">Section One</section>
+    <section id="section-02">Section Two</section>
+    <section id="section-03">Section Three</section>
+    <section id="section-04">Section Four</section>
+    <section id="section-05">Section Five</section>
+
+    <a href="#top"><p class="footer">Scroll back to top</p></a>
+
+</div><!-- End of wrapper -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.jsLinks to an external site."></script>
+
+
+<script>
+    $(document).ready(function(){
+// Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+
+// Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+// Prevent default anchor click behavior
+                event.preventDefault();
+
+// Store hash
+                var hash = this.hash;
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+</body>
+</html>
